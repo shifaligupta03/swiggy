@@ -1,5 +1,4 @@
 import React, {useEffect, useState, useCallback} from 'react';
-import axios from 'axios';
 import SideBar from "../SideBar/SideBar";
 import RestaurantList from "../RestaurantList/RestaurantList";
 import {URL} from '../../constants/config'
@@ -27,11 +26,11 @@ function App() {
   }
 
   const getRestaurants = useCallback(async()=>{
-    const response = await axios.get(URL.DATA);
+    const response = await fetch(URL.DATA);
+    const data = await response.json();
     const additionalCategories = ADDIONAL_CATEGORIES.map((item)=>item.title);
-    console.log({data: response.data});
-    const allCategories = [...response.data.map(restaurantsCategory => restaurantsCategory.category), ...additionalCategories];
-    setRestaurants(response.data);
+    const allCategories = [...data.map(restaurantsCategory => restaurantsCategory.category), ...additionalCategories];
+    setRestaurants(data);
     setCategories(allCategories);
   },[]);
 
