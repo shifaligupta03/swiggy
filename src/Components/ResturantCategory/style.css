@@ -1,0 +1,22 @@
+
+  .restaurantlist{
+    display: flex;
+    justify-content: space-between;
+    flex-flow: wrap;
+  }
+  
+  .category {
+    text-transform: capitalize;
+    font-size: 28px;
+    font-weight: 600;
+    text-align: left;
+  }
+  
+  .loadmore{
+    margin: 20px 20px 57px;
+    width: 254px;
+    border: 2px solid #e46d47;
+    background-color: #fff;
+    font-size: 24px;
+    color: #e46d47;
+  }
