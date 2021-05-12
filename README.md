@@ -1,4 +1,4 @@
-# Swiggy Clone
+# Swiggy clone
 
 A cloned trimmed down version of Swiggy web-app using React.
 
