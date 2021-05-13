@@ -6,12 +6,6 @@ A cloned trimmed down version of Swiggy web-app using React.
 * node
 * yarn 
 
-## Features
-
-- React 16
-- Webpack 5
-- Babel 7
-
 ## Getting Started
 - Run `yarn install` after cloning the repo.
 - Run `yarn start`.
