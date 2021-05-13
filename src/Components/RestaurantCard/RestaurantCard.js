@@ -3,7 +3,7 @@ import {getImage} from "../../utilities/utility";
 import { images } from '../../constants/constants';
 import './style.css'
 
-const RestaurantCard = ({restaurant:{food_types, name, ratings, delivery_time, price_for_two}})=>{
+const RestaurantCard = ({restaurant:{food_types, name, ratings='-', delivery_time, price_for_two}})=>{
   const [foodType] = useState(food_types.reduce((acc, curr) => acc + ', ' + curr));
   const image = getImage(images,name)
   return (
@@ -14,7 +14,9 @@ const RestaurantCard = ({restaurant:{food_types, name, ratings, delivery_time, p
       </div>
       <div className="subtitle">{foodType}</div>
       <div className="details">
-        <span className='rating'>
+        <span
+         className={`rating ${ratings ? '' : 'disable'}`}
+         >
           &#9733; {ratings}
         </span>
         .
