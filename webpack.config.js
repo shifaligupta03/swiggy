@@ -3,6 +3,10 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: path.resolve(__dirname, './src/index.js'),
+  output: {
+    path: path.resolve(__dirname, './dist'),
+    filename: 'bundle.js',
+  },
   module: {
     rules: [
       {
@@ -11,21 +15,16 @@ module.exports = {
         use: ['babel-loader'],
       },
       {
-        test: /.css$/,
-         loader: 'style-loader' 
-      },
-      {
-          test: /.css$/,
-          loader: 'css-loader'
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
       }
     ],
   },
+  performance: {
+    hints: process.env.NODE_ENV === 'production' ? "warning" : false
+  },
   resolve: {
     extensions: ['*', '.js', '.jsx'],
-  },
-  output: {
-    path: path.resolve(__dirname, './dist'),
-    filename: 'bundle.js',
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
   devServer: {
